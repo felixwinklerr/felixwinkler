@@ -3,9 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Felix Winkler — Sovereignty Guide</title>
-    <meta name="description" content="Cultivating inner freedom and building an outer life that reflects your truth.">
+    <title>Felix Winkler — Sovereignty Guide | Inner & Outer Freedom</title>
+    <meta name="description" content="Weekly insights on presence, nervous system mastery, and designing a life of true freedom. Join readers cultivating sovereignty from the inside out.">
     
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Felix Winkler — Sovereignty Guide">
+    <meta property="og:description" content="Weekly insights on presence, nervous system mastery, and designing a life of true freedom.">
+    <meta property="og:url" content="https://felixwinkler.com">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+    
+    <!-- Preload critical fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
@@ -14,17 +25,40 @@
         :root {
             --bg-primary: #0a0a0a;
             --bg-secondary: #111111;
+            --bg-tertiary: #161616;
             --text-primary: #f5f5f4;
             --text-secondary: #a8a29e;
             --accent: #d4a373;
+            --accent-hover: #e0b088;
             --accent-subtle: rgba(212, 163, 115, 0.1);
             --border: rgba(168, 162, 158, 0.15);
+            --success: #4ade80;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        /* Skip to content - Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 12px 24px;
+            z-index: 9999;
+            border-radius: 0 0 4px 4px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
         }
 
         html {
@@ -55,16 +89,35 @@
             z-index: 1000;
         }
 
+        /* Focus states for accessibility */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
+        }
+
         .container {
-            max-width: 680px;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .container-wide {
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
         /* Header */
         header {
-            padding: 40px 0;
+            padding: 32px 0;
             border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
@@ -75,9 +128,24 @@
             color: var(--text-primary);
         }
 
+        .header-cta {
+            font-size: 0.8125rem;
+            color: var(--accent);
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid var(--accent);
+            border-radius: 2px;
+            transition: all 0.2s ease;
+        }
+
+        .header-cta:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+        }
+
         /* Hero Section */
         .hero {
-            padding: 100px 0 80px;
+            padding: 80px 0 60px;
             text-align: center;
         }
 
@@ -86,16 +154,16 @@
             text-transform: uppercase;
             letter-spacing: 0.2em;
             color: var(--accent);
-            margin-bottom: 32px;
+            margin-bottom: 28px;
             font-weight: 500;
         }
 
         .hero h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.5rem, 6vw, 3.75rem);
+            font-size: clamp(2.25rem, 5.5vw, 3.5rem);
             font-weight: 300;
-            line-height: 1.2;
-            margin-bottom: 28px;
+            line-height: 1.15;
+            margin-bottom: 24px;
             color: var(--text-primary);
         }
 
@@ -107,88 +175,154 @@
         .hero-text {
             font-size: 1.125rem;
             color: var(--text-secondary);
-            max-width: 520px;
+            max-width: 540px;
             margin: 0 auto;
-            line-height: 1.8;
+            line-height: 1.75;
         }
 
         .hero-cta {
-            margin-top: 40px;
+            margin-top: 36px;
         }
 
-        .hero-cta a {
+        .btn-primary {
             display: inline-block;
-            padding: 16px 36px;
+            padding: 18px 40px;
             background: var(--accent);
             color: var(--bg-primary);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.9375rem;
+            font-size: 1rem;
             letter-spacing: 0.02em;
-            border-radius: 2px;
+            border-radius: 3px;
             transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
 
-        .hero-cta a:hover {
-            background: #e0b088;
+        .btn-primary:hover {
+            background: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(212, 163, 115, 0.3);
+            box-shadow: 0 8px 24px rgba(212, 163, 115, 0.25);
         }
 
-        .hero-cta p {
-            margin-top: 16px;
-            font-size: 0.8125rem;
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .hero-trust {
+            margin-top: 20px;
+            font-size: 0.875rem;
             color: var(--text-secondary);
-        }
-
-        /* Divider */
-        .divider {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
-            padding: 60px 0;
-            color: var(--border);
+            gap: 6px;
         }
 
-        .divider span {
-            font-size: 0.625rem;
-            letter-spacing: 0.3em;
-            color: var(--text-secondary);
-            text-transform: uppercase;
+        .hero-trust svg {
+            color: var(--success);
         }
 
-        .divider::before,
-        .divider::after {
-            content: '';
-            width: 60px;
-            height: 1px;
-            background: var(--border);
-        }
-
-        /* Philosophy Section */
-        .philosophy {
-            padding: 0 0 80px;
+        /* Social Proof */
+        .social-proof {
+            padding: 48px 0;
             text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .social-proof p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+        }
+
+        .social-proof strong {
+            color: var(--text-primary);
+        }
+
+        /* What You Get Section */
+        .benefits {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .section-label {
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--accent);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .benefits h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 400;
+            margin-bottom: 48px;
+            color: var(--text-primary);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            text-align: left;
+        }
+
+        .benefit-item {
+            padding: 28px 24px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .benefit-icon {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .benefit-item h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .benefit-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Philosophy/Pillars Section */
+        .philosophy {
+            padding: 80px 0;
+            text-align: center;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .philosophy h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+            font-weight: 400;
+            margin-bottom: 48px;
+            color: var(--text-primary);
         }
 
         .philosophy-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 40px;
-            margin-top: 48px;
-        }
-
-        .philosophy-item {
-            padding: 32px 16px;
-            border: 1px solid var(--border);
-            border-radius: 2px;
-            transition: border-color 0.3s ease, background-color 0.3s ease;
-        }
-
-        .philosophy-item:hover {
-            border-color: var(--accent);
-            background-color: var(--accent-subtle);
         }
 
         .philosophy-item h3 {
@@ -196,11 +330,11 @@
             font-size: 1.375rem;
             font-weight: 400;
             margin-bottom: 12px;
-            color: var(--text-primary);
+            color: var(--accent);
         }
 
         .philosophy-item p {
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
             line-height: 1.6;
         }
@@ -208,16 +342,14 @@
         /* Quote Section */
         .quote-section {
             padding: 80px 0;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
         }
 
         blockquote {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.5rem, 3.5vw, 2rem);
+            font-size: clamp(1.375rem, 3vw, 1.75rem);
             font-weight: 300;
             font-style: italic;
-            line-height: 1.5;
+            line-height: 1.6;
             text-align: center;
             color: var(--text-secondary);
         }
@@ -231,45 +363,121 @@
         .newsletter {
             padding: 100px 0;
             text-align: center;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-tertiary) 100%);
+            border-top: 1px solid var(--border);
         }
 
         .newsletter h2 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
             font-weight: 400;
             margin-bottom: 16px;
             color: var(--text-primary);
         }
 
         .newsletter-description {
-            font-size: 1rem;
+            font-size: 1.0625rem;
             color: var(--text-secondary);
-            margin-bottom: 40px;
-            max-width: 400px;
+            margin-bottom: 36px;
+            max-width: 420px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.7;
         }
 
         .newsletter-embed {
             display: flex;
             justify-content: center;
-        }
-
-        .newsletter-embed iframe {
-            border-radius: 8px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
         }
 
         .newsletter-trust {
-            margin-top: 20px;
             font-size: 0.8125rem;
             color: var(--text-secondary);
-            opacity: 0.7;
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .newsletter-trust span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .newsletter-trust svg {
+            width: 14px;
+            height: 14px;
+            color: var(--success);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .about-inner {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            text-align: left;
+        }
+
+        .about-image {
+            flex-shrink: 0;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .about-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .about-content p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 80px 0;
+            text-align: center;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+        }
+
+        .final-cta h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+            font-weight: 400;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .final-cta p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
         }
 
         /* Footer */
         footer {
-            padding: 40px 0;
+            padding: 48px 0;
             border-top: 1px solid var(--border);
             text-align: center;
         }
@@ -313,98 +521,175 @@
         .hero-label,
         .hero h1,
         .hero-text,
-        .hero-cta {
+        .hero-cta,
+        .hero-trust {
             animation: fadeUp 0.8s ease-out forwards;
         }
 
-        .hero-label {
-            animation-delay: 0.1s;
+        .hero-label { animation-delay: 0.1s; opacity: 0; }
+        .hero h1 { animation-delay: 0.2s; opacity: 0; }
+        .hero-text { animation-delay: 0.3s; opacity: 0; }
+        .hero-cta { animation-delay: 0.4s; opacity: 0; }
+        .hero-trust { animation-delay: 0.5s; opacity: 0; }
+
+        /* Scroll animations */
+        .benefit-item,
+        .philosophy-item {
             opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s ease-out forwards;
         }
 
-        .hero h1 {
-            animation-delay: 0.2s;
-            opacity: 0;
-        }
+        .benefit-item:nth-child(1) { animation-delay: 0.1s; }
+        .benefit-item:nth-child(2) { animation-delay: 0.2s; }
+        .benefit-item:nth-child(3) { animation-delay: 0.3s; }
 
-        .hero-text {
-            animation-delay: 0.3s;
-            opacity: 0;
-        }
-
-        .hero-cta {
-            animation-delay: 0.4s;
-            opacity: 0;
-        }
+        .philosophy-item:nth-child(1) { animation-delay: 0.1s; }
+        .philosophy-item:nth-child(2) { animation-delay: 0.2s; }
+        .philosophy-item:nth-child(3) { animation-delay: 0.3s; }
 
         /* Responsive */
         @media (max-width: 768px) {
+            .header-cta {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 0 40px;
+            }
+
+            .benefits-grid,
             .philosophy-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
 
-            .hero {
-                padding: 80px 0 60px;
+            .benefits, .philosophy, .newsletter, .about, .final-cta {
+                padding: 60px 0;
             }
 
-            .newsletter {
-                padding: 80px 0;
+            .about-inner {
+                flex-direction: column;
+                text-align: center;
             }
 
-            .newsletter-embed iframe {
+            .btn-primary {
+                padding: 16px 32px;
                 width: 100%;
-                max-width: 400px;
+                max-width: 320px;
+            }
+
+            .newsletter-trust {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+        /* Reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            html {
+                scroll-behavior: auto;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Skip to content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
     <header>
-        <div class="container">
-            <div class="logo">Felix Winkler</div>
+        <div class="container-wide">
+            <div class="header-inner">
+                <div class="logo">Felix Winkler</div>
+                <a href="#subscribe" class="header-cta">Subscribe</a>
+            </div>
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
+        <!-- Hero Section -->
         <section class="hero">
             <div class="container">
                 <p class="hero-label">Inner Freedom × Outer Freedom</p>
                 <h1>Cultivating <em>sovereignty</em><br>from the inside out</h1>
                 <p class="hero-text">
-                    Weekly insights on presence, nervous system mastery, and designing a life of true freedom — from someone living it.
+                    Weekly insights on presence, nervous system mastery, and designing a life of true freedom — from someone living it in Bali.
                 </p>
                 <div class="hero-cta">
-                    <a href="#subscribe">Join Sovereignty Notes</a>
-                    <p>Free weekly transmission · No spam · Unsubscribe anytime</p>
+                    <a href="#subscribe" class="btn-primary">Join Sovereignty Notes — Free</a>
+                </div>
+                <p class="hero-trust">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Join readers building lives of freedom
+                </p>
+            </div>
+        </section>
+
+        <!-- Social Proof -->
+        <section class="social-proof">
+            <div class="container">
+                <p>Trusted by <strong>conscious entrepreneurs, seekers, and freedom-builders</strong> worldwide</p>
+            </div>
+        </section>
+
+        <!-- What You Get -->
+        <section class="benefits" aria-labelledby="benefits-heading">
+            <div class="container-wide">
+                <p class="section-label">What You'll Receive</p>
+                <h2 id="benefits-heading">Every Week in Your Inbox</h2>
+                <div class="benefits-grid">
+                    <article class="benefit-item">
+                        <div class="benefit-icon">🧘</div>
+                        <h3>Presence Practices</h3>
+                        <p>Nervous system tools, breathwork insights, and awareness techniques for inner stability.</p>
+                    </article>
+                    <article class="benefit-item">
+                        <div class="benefit-icon">🏝️</div>
+                        <h3>Life Architecture</h3>
+                        <p>Strategies for remote work, location freedom, and building a life aligned with your truth.</p>
+                    </article>
+                    <article class="benefit-item">
+                        <div class="benefit-icon">⚡</div>
+                        <h3>Lived Wisdom</h3>
+                        <p>Real insights from the journey — no theory, just what actually works for sovereignty.</p>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <div class="divider">
-            <span>The Path</span>
-        </div>
-
-        <section class="philosophy">
+        <!-- Philosophy/Pillars -->
+        <section class="philosophy" aria-labelledby="philosophy-heading">
             <div class="container">
+                <h2 id="philosophy-heading">The Three Pillars of Sovereignty</h2>
                 <div class="philosophy-grid">
                     <div class="philosophy-item">
                         <h3>Inner Freedom</h3>
-                        <p>Presence, awareness, nervous system regulation, identity dissolution</p>
+                        <p>Presence, awareness, nervous system regulation, and dissolving limiting patterns</p>
                     </div>
                     <div class="philosophy-item">
                         <h3>Outer Freedom</h3>
-                        <p>Lifestyle architecture, digital leverage, nomadic systems design</p>
+                        <p>Lifestyle architecture, digital leverage, and nomadic systems design</p>
                     </div>
                     <div class="philosophy-item">
                         <h3>Integration</h3>
-                        <p>Flow × Structure. Being × Doing. Truth embodied in form</p>
+                        <p>Flow × Structure. Being × Doing. Truth embodied in daily life</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="quote-section">
+        <!-- Quote -->
+        <section class="quote-section" aria-label="Philosophy quote">
             <div class="container">
                 <blockquote>
                     "Spirituality without embodiment is entertainment.<br>
@@ -414,26 +699,73 @@
             </div>
         </section>
 
-        <section class="newsletter" id="subscribe">
+        <!-- Newsletter Section -->
+        <section class="newsletter" id="subscribe" aria-labelledby="newsletter-heading">
             <div class="container">
-                <h2>Get Sovereignty Notes</h2>
+                <p class="section-label">Free Weekly Newsletter</p>
+                <h2 id="newsletter-heading">Get Sovereignty Notes</h2>
                 <p class="newsletter-description">
-                    One insight per week. Inner freedom meets outer design. Written from Bali, delivered to your inbox.
+                    One insight per week. Inner freedom meets outer design. Written from Bali, delivered with presence.
                 </p>
                 <div class="newsletter-embed">
                     <div data-supascribe-embed-id="678838475828" data-supascribe-subscribe></div>
                 </div>
-                <p class="newsletter-trust">No spam. No fluff. Unsubscribe anytime.</p>
+                <div class="newsletter-trust">
+                    <span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        Free forever
+                    </span>
+                    <span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        No spam
+                    </span>
+                    <span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        Unsubscribe anytime
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="about" aria-labelledby="about-heading">
+            <div class="container">
+                <div class="about-inner">
+                    <div class="about-image" aria-hidden="true">◈</div>
+                    <div class="about-content">
+                        <h3 id="about-heading">Written by Felix Winkler</h3>
+                        <p>
+                            Based in Bali, building a life that integrates consciousness work with practical freedom. 
+                            After years of inner exploration and outer experimentation, I share what actually works 
+                            for cultivating sovereignty — no fluff, just truth.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta" aria-labelledby="final-cta-heading">
+            <div class="container">
+                <h2 id="final-cta-heading">Ready to start your sovereignty journey?</h2>
+                <p>Join the newsletter and receive your first transmission this week.</p>
+                <a href="#subscribe" class="btn-primary">Join Sovereignty Notes — Free</a>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p class="footer-text">© 2025 Felix Winkler</p>
+            <p class="footer-text">© 2025 Felix Winkler · Sovereignty Guide</p>
             <div class="footer-links">
-                <a href="https://felixwinklerr.substack.com" target="_blank" rel="noopener">Substack</a>
-                <a href="https://instagram.com/felixwinklerr" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://felixwinklerr.substack.com" target="_blank" rel="noopener noreferrer">Substack</a>
+                <a href="https://instagram.com/felixwinklerr" target="_blank" rel="noopener noreferrer">Instagram</a>
             </div>
         </div>
     </footer>
@@ -442,4 +774,3 @@
     <script src="https://js.supascribe.com/v1/loader/LxKZR9WVRBU71jqAnvNwsiZaeZf2.js" async></script>
 </body>
 </html>
-
